@@ -1,0 +1,72 @@
+mainfile
+import re
+in1=[]
+in2=[]
+file1=open("sample_input.txt","r")
+for l in file1:
+    temp=l.split()
+    in2.append(int(temp[-1]))
+    in1.append(" ".join(temp[:-1]))
+for i in range(1,len(in2)):
+  for j in range(i+1,len(in2)):
+    if(in2[i]>in2[j]):
+      t1=in2[i]
+      in2[i]=in2[j]
+      in2[j]=t1
+      t2 = in1[i]
+      in1[i] = in1[j]
+      in1[j] = t2
+print(in1)
+print(in2)
+min=999999
+for i in range(1,len(in2)-in2[0]-1):
+  if(in2[i+in2[0]-1]-in2[i]<min):
+      min=in2[i+in2[0]-1]-in2[i]
+      c=i
+
+D=[]
+for x in range (c, c+in2[0]):
+    str1=b[x]+str(in2[x])+"\n"
+    D.append(str1)
+    str1=""
+print(D)
+file2=open("sample_output.txt","w")
+file2.write("The goodies selected for distribution are \n")
+for y in D:
+  file2.write(y)
+str2="And the differene between the chosen with highest pay godie. and lower price is "+str(min)
+file2.write(str2)
+
+
+
+sample_input.txt
+Number of employees: 5
+Fitbit Plus: 7980
+IPods: 22349
+MI Band: 999
+Cult Pass: 2799
+Macbook Pro: 229900
+Digital Camera: 11101
+Alexa: 9999
+Sandwich Toaster: 2195
+Microwave Oven: 9800
+Scale: 4999
+
+
+ouput:
+The goodies selected for distribution are 
+Scale:4999
+Fitbit Plus:7980
+Microwave Oven:9800
+Alexa:9999
+Digital Camera:11101
+And the differene between the chosen with highest pay godie. and lower price is 6102
+
+
+
+
+
+
+
+
+
